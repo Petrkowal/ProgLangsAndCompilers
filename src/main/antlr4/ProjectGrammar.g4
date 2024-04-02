@@ -1,22 +1,74 @@
 
 grammar ProjectGrammar;
 
-prog: (expr ';')+;
+prog: statement+ EOF;
 
-expr: expr op=('*'|'/') expr
-    | expr op=('+'|'-') expr
-    | INT
-    | OCT
-    | HEXA
-    | '(' expr ')'
+expr:
+      '(' expr ')'                  # parentheses
+    | '-' expr                      # unaryMinus
+    | '!' expr                      # logicNot
+    | expr op=('*'|'/'|'%') expr    # arithmetic
+    | expr op=('+'|'-'|'.') expr    # arithmetic
+    | expr op=('>'|'<') expr        # comparison
+    | expr op=('=='|'!=') expr      # equality
+    | expr op='&&' expr             # logicAnd
+    | expr op='||' expr             # logicOr
+    | <assoc=right> ID op='=' expr  # assignment
+    | literal                       # literals
+    | ID                            # identifier
     ;
 
-ID : [a-zA-Z]+ ;
-INT : [1-9][0-9]* ;
-OCT : '0' [0-7]+ ;
-HEXA : '0x' [0-9a-fA-F]+ ;
-WS : [ \t\r\n]+ -> skip ;
+declarationStatement: type ID (',' ID)* ';';
+emptyStatement: ';';
+exprStatement: expr ';';
+readStatement: 'read' (ID ',')* ID ';';
+writeStatement: 'write' (expr ',')* expr ';';
+blockStatement: '{' statement* '}';
+ifStatement: 'if' '(' expr ')' statement ('else' statement)?;
+whileStatement: 'while' '(' expr ')' statement;
 
+
+statement:
+     ifStatement
+    | blockStatement
+    | declarationStatement
+    | emptyStatement
+    | readStatement
+    | writeStatement
+    | whileStatement
+    | exprStatement
+    ;
+
+literal: INT | FLOAT | BOOL | STRING;
+
+type: 'int'
+    | 'float'
+    | 'bool'
+    | 'string'
+    ;
+
+
+ID : [a-zA-Z]+ ;
+
+INT : '0'
+    | [1-9][0-9]* ;
+
+FLOAT: [0-9]+ '.' [0-9]+ ;
+
+BOOL : 'true' | 'false' ;
+
+STRING : '"' (~["\\\r\n] | EscapeSequence)* '"' ;
+
+WS : [ \t\r\n\u000C]+ -> skip ;
+COMMENT : '//' ~[\r\n]* -> skip ;
+
+fragment EscapeSequence:
+    '\\' 'u005c'? [btnfr"'\\]
+    | '\\' 'u005c'? ([0-3]? [0-7])? [0-7]
+    | '\\' 'u'+ HexDigit HexDigit HexDigit HexDigit
+;
+
+HexDigit: [0-9a-fA-F] ;
 
  /*
  starting point for parsing a java file
@@ -860,12 +912,7 @@ StringCharacter
 
 // §3.10.6 Escape Sequences for Character and String Literals
 
-fragment
-EscapeSequence
-    :   '\\' [btnfr"'\\]
-    |   OctalEscape
-    |   UnicodeEscape
-    ;
+
 
 fragment
 OctalEscape

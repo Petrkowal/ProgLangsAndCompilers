@@ -29,7 +29,6 @@ public class Main {
             ProjectGrammarParser parser = new ProjectGrammarParser(tokens);
             ParseTree tree = parser.prog(); // parse the input stream
 
-
             // check for syntax errors
             if(parser.getNumberOfSyntaxErrors() > 0){
                 System.out.println("Syntax errors found. Exiting program.");

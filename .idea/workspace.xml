@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f78d231-1fa8-403f-845f-2a14551d8ba9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/antlr4/ProjectGrammar.g4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/pjp/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/antlr4/ProjectGrammar.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr4/ProjectGrammar.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/pjp/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/pjp/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/input.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,14 +16,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DarkyenusTimeTracker">
-    <option name="totalTimeSeconds" value="2271" />
+    <option name="totalTimeSeconds" value="8937" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2eKjV9JL3V63wUkfWjD49beUg5K" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -47,6 +42,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/petr/IdeaProjects/pjp/src/main/antlr4",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -60,6 +56,10 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/antlr4" />
+      <recent name="$PROJECT_DIR$/src/main/java/org/pjp/antlr4" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/org/pjp/src/main/antlr4" />
     </key>
@@ -100,6 +100,9 @@
       <option name="presentableId" value="Default" />
       <updated>1711660186011</updated>
       <workItem from="1711660187120" duration="2474000" />
+      <workItem from="1711897109821" duration="9210000" />
+      <workItem from="1712000168814" duration="1255000" />
+      <workItem from="1712041883082" duration="428000" />
     </task>
     <servers />
   </component>
