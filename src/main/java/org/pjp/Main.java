@@ -11,9 +11,6 @@ import org.pjp.generated.*;
 
 public class Main {
     public static void main(String[] args) {
-//        String[] antlrArgs = {"-no-listener", "-visitor", "-Dlanguage=Java", "-o", "src/main/java/org/pjp/", "src/main/antlr4/ProjectGrammar.g4"};
-//        Tool antlr = new Tool(antlrArgs);
-//        antlr.processGrammarsOnCommandLine();
 
         try{
 

@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f78d231-1fa8-403f-845f-2a14551d8ba9" name="Changes" comment="Parsing done??">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/pjp/Errors.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/pjp/SymbolTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/pjp/Type.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/pjp/TypecheckVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="8f78d231-1fa8-403f-845f-2a14551d8ba9" name="Changes" comment="Typecheck">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/antlr4/ProjectGrammar.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr4/ProjectGrammar.g4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/pjp/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/pjp/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/pjp/SymbolTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/pjp/SymbolTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/pjp/TypecheckVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/pjp/TypecheckVisitor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DarkyenusTimeTracker">
-    <option name="totalTimeSeconds" value="20808" />
+    <option name="totalTimeSeconds" value="22718" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -118,7 +113,8 @@
       <workItem from="1712041883082" duration="2802000" />
       <workItem from="1712487827227" duration="11615000" />
       <workItem from="1712511171663" duration="169000" />
-      <workItem from="1712599949966" duration="3424000" />
+      <workItem from="1712599949966" duration="7724000" />
+      <workItem from="1712646436265" duration="8000" />
     </task>
     <task id="LOCAL-00001" summary="Parsing done??">
       <option name="closed" value="true" />
@@ -128,7 +124,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712042346936</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Typecheck">
+      <option name="closed" value="true" />
+      <created>1712604156558</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1712604156558</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,17 +140,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Parsing done??" />
-    <option name="LAST_COMMIT_MESSAGE" value="Parsing done??" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/pjp/Main.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Typecheck" />
+    <option name="LAST_COMMIT_MESSAGE" value="Typecheck" />
   </component>
 </project>

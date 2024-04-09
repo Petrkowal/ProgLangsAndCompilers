@@ -7,7 +7,7 @@ import org.pjp.generated.ProjectGrammarParser;
 
 import java.util.List;
 
-public class TypecheckVisitor extends ProjectGrammarBaseVisitor {
+public class TypecheckVisitor extends ProjectGrammarBaseVisitor<Type> {
 
     private final SymbolTable symbolTable = new SymbolTable();
 
