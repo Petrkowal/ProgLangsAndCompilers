@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f78d231-1fa8-403f-845f-2a14551d8ba9" name="Changes" comment="Minor changes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/pjp/EvalVisitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/pjp/Instruction.java" afterDir="false" />
+    <list default="true" id="8f78d231-1fa8-403f-845f-2a14551d8ba9" name="Changes" comment="Working compilation (with some debugging additions)">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/pjp/VirtualMachine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/antlr4/ProjectGrammar.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr4/ProjectGrammar.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/pjp/EvalVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/pjp/CompileVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/pjp/Instruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/pjp/Instruction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/pjp/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/pjp/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/pjp/SymbolTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/pjp/SymbolTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/pjp/TypecheckVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/pjp/TypecheckVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/input.txt" afterDir="false" />
     </list>
@@ -19,14 +21,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DarkyenusTimeTracker">
-    <option name="totalTimeSeconds" value="43956" />
+    <option name="totalTimeSeconds" value="56663" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
         <option value="Record" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -139,7 +141,8 @@
       <workItem from="1712861146777" duration="155000" />
       <workItem from="1712861809671" duration="499000" />
       <workItem from="1712934533097" duration="100000" />
-      <workItem from="1712951627210" duration="21576000" />
+      <workItem from="1712951627210" duration="21613000" />
+      <workItem from="1713012046203" duration="15208000" />
     </task>
     <task id="LOCAL-00001" summary="Parsing done??">
       <option name="closed" value="true" />
@@ -165,7 +168,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712646477756</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Working compilation (with some debugging additions)">
+      <option name="closed" value="true" />
+      <created>1712977432268</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1712977432268</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,17 +186,7 @@
     <MESSAGE value="Parsing done??" />
     <MESSAGE value="Typecheck" />
     <MESSAGE value="Minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor changes" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/pjp/EvalVisitor.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Working compilation (with some debugging additions)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working compilation (with some debugging additions)" />
   </component>
 </project>

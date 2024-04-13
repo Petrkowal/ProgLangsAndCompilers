@@ -3,7 +3,6 @@ package org.pjp;
 
 import org.antlr.v4.runtime.tree.ParseTreeProperty;
 import org.antlr.v4.runtime.tree.TerminalNode;
-import org.antlr.v4.tool.ast.TerminalAST;
 import org.pjp.generated.ProjectGrammarBaseVisitor;
 import org.pjp.generated.ProjectGrammarParser;
 
@@ -11,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class EvalVisitor extends ProjectGrammarBaseVisitor<List<Instruction>> {
+public class CompileVisitor extends ProjectGrammarBaseVisitor<List<Instruction>> {
 
     public void setTypes(ParseTreeProperty<Type> types) {
         this.types = types;
@@ -32,14 +31,13 @@ public class EvalVisitor extends ProjectGrammarBaseVisitor<List<Instruction>> {
     @Override
     public List<Instruction> visitIdentifier(ProjectGrammarParser.IdentifierContext ctx) {
         ArrayList<Instruction> result = new ArrayList<>();
-        result.add(new Load(ctx.ID().getText(), true));  // TODO Remove space end
+        result.add(new Load(ctx.ID().getText()));
         return result;
     }
 
     @Override
     public List<Instruction> visitParentheses(ProjectGrammarParser.ParenthesesContext ctx) {
-        ArrayList<Instruction> result = new ArrayList<>(visit(ctx.expr()));
-        return result;
+        return new ArrayList<>(visit(ctx.expr()));
     }
 
     @Override
@@ -85,7 +83,7 @@ public class EvalVisitor extends ProjectGrammarBaseVisitor<List<Instruction>> {
             result.add(new Itof());
         }
         result.add(new Save(ctx.ID().getText()));
-        result.add(new Load(ctx.ID().getText(), false));  // TODO: Remoe space end
+        result.add(new Load(ctx.ID().getText()));
         return result;
     }
 
@@ -232,7 +230,7 @@ public class EvalVisitor extends ProjectGrammarBaseVisitor<List<Instruction>> {
                 yield Type.FLOAT;
             }
             case "bool" -> {
-                defaultValue = true; // TODO: Change to false
+                defaultValue = false;
                 yield Type.BOOL;
             }
             case "string" -> {

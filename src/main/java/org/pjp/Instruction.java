@@ -125,10 +125,10 @@ record Pop() implements Instruction {
     }
 }
 
-record Load(String id, boolean space_end) implements Instruction {
+record Load(String id) implements Instruction {
     @Override
     public String toString() {  // TODO: Remove space end
-        return "load " + id + (space_end ? " " : "");
+        return "load " + id;
     }
 }
 
