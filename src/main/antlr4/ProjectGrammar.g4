@@ -15,25 +15,26 @@ for (expr ; contition ; expr) statement
 */
 
 expr:
-      op='-' expr                   # unaryMinus
-    | op='!' expr                   # logicNot
-    | expr op=('*'|'/'|'%') expr    # arithmetic
-    | expr op=('+'|'-'|'.') expr    # arithmetic
-    | expr op=('>'|'<') expr        # comparison
-    | expr op=('=='|'!=') expr      # equality
-    | expr op='&&' expr             # logicAndOr
-    | expr op='||' expr             # logicAndOr
-    | <assoc=right> ID op='=' expr  # assignment
-    | literal                       # literals
-    | ID                            # identifier
-    | '(' expr ')'                  # parentheses
+      op='-' expr                               # unaryMinus
+    | op='!' expr                               # logicNot
+    | expr op=('*'|'/'|'%') expr                # arithmetic
+    | expr op=('+'|'-'|'.') expr                # arithmetic
+    | expr op=('>'|'<') expr                    # comparison
+    | expr op=('=='|'!=') expr                  # equality
+    | expr op='&&' expr                         # logicAndOr
+    | expr op='||' expr                         # logicAndOr
+    | <assoc=right> expr '?' expr ':' expr      # ternary
+    | <assoc=right> ID op='=' expr              # assignment
+    | literal                                   # literals
+    | ID                                        # identifier
+    | '(' expr ')'                              # parentheses
     ;
 
 declarationStatement: type ID (',' ID)* ';';
 emptyStatement: ';';
 exprStatement: expr ';';
-readStatement: 'read' (ID ',')* ID ';';
-writeStatement: 'write' (expr ',')* expr ';';
+readStatement: 'read' (ID ',')* ID ';'; // on separate lines?
+writeStatement: 'write' (expr ',')* expr ';'; // on separate lines?
 blockStatement: '{' statement* '}';
 ifStatement: 'if' '(' expr ')' statement ('else' statement)?;
 whileStatement: 'while' '(' expr ')' statement;
