@@ -64,10 +64,6 @@ public class SymbolTable {
             return value;
         }
 
-        public void setValue(Object value) {
-            this.value = value;
-        }
-
         public void set(Type type, Object value) {
             this.type = type;
             this.value = value;

@@ -82,6 +82,8 @@ public class VirtualMachine {
         else if (a instanceof Float){
             stack.push((Float) a + (Float) b);
         }
+        else if (a instanceof Double)
+            stack.push((((Double) a).floatValue() + ((Double) b).floatValue()));
     }
 
     private void execSub() {
@@ -203,9 +205,23 @@ public class VirtualMachine {
                 else
                     stack.push(Integer.parseInt((String) push.val()));
             }
-            case FLOAT -> stack.push(Float.parseFloat((String) push.val()));
-            case BOOL -> stack.push(Boolean.parseBoolean((String) push.val()));
-            case STRING -> stack.push(push.val());
+            case FLOAT -> {
+                if (push.val() instanceof Float)
+                    stack.push(push.val());
+                else if (push.val() instanceof Double)
+                    stack.push(((Double) push.val()).floatValue());
+                else
+                    stack.push(Float.parseFloat((String) push.val()));
+            }
+            case BOOL -> {
+                if (push.val() instanceof Boolean)
+                    stack.push(push.val());
+                else
+                    stack.push(Boolean.parseBoolean((String) push.val()));
+            }
+            case STRING -> {
+                stack.push(push.val());
+            }
         }
     }
 
@@ -226,6 +242,8 @@ public class VirtualMachine {
             symbolTable.Set(save.id(), Type.INT, o);
         else if (o instanceof Float)
             symbolTable.Set(save.id(), Type.FLOAT, o);
+        else if (o instanceof Double)
+            symbolTable.Set(save.id(), Type.FLOAT, ((Double) o).floatValue());
         else if (o instanceof Boolean)
             symbolTable.Set(save.id(), Type.BOOL, o);
         else if (o instanceof String)
@@ -249,7 +267,9 @@ public class VirtualMachine {
     }
 
     private void execPrint(Print print) {
-        System.out.println(stack.pop());
+        int n = print.n();
+        for (int i = 0; i < n; i++)
+            System.out.println(stack.pop());
     }
 
     private void execRead(Read read) {
