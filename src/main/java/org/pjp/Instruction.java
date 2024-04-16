@@ -5,31 +5,31 @@ public interface Instruction {
 }
 
 
-record Add() implements Instruction {
+record Add(Type type) implements Instruction {
     @Override
     public String toString() {
-        return "add";
+        return "add " + type.toString().charAt(0);
     }
 }
 
-record Sub() implements Instruction {
+record Sub(Type type) implements Instruction {
     @Override
     public String toString() {
-        return "sub";
+        return "sub " + type.toString().charAt(0);
     }
 }
 
-record Mul() implements Instruction {
+record Mul(Type type) implements Instruction {
     @Override
     public String toString() {
-        return "mul";
+        return "mul " + type.toString().charAt(0);
     }
 }
 
-record Div() implements Instruction {
+record Div(Type type) implements Instruction {
     @Override
     public String toString() {
-        return "div";
+        return "div " + type.toString().charAt(0);
     }
 }
 
@@ -157,6 +157,13 @@ record Fjmp(int n) implements Instruction {
     @Override
     public String toString() {
         return "fjmp " + n;
+    }
+}
+
+record Tjmp(int n) implements Instruction {
+    @Override
+    public String toString() {
+        return "tjmp " + n;
     }
 }
 

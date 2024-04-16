@@ -65,6 +65,8 @@ public class VirtualMachine {
                 execJmp((Jmp) instruction);
             } else if (instruction instanceof Fjmp) {
                 execFjmp((Fjmp) instruction);
+            } else if (instruction instanceof Tjmp) {
+                execTjmp((Tjmp) instruction);
             } else if (instruction instanceof Print) {
                 execPrint((Print) instruction);
             } else if (instruction instanceof Read) {
@@ -265,6 +267,12 @@ public class VirtualMachine {
         boolean a = (boolean) stack.pop();
         if (!a)
             instructionPointer = labels.get(fjmp.n()) - 1;
+    }
+
+    private void execTjmp(Tjmp tjmp) {
+        boolean a = (boolean) stack.pop();
+        if (a)
+            instructionPointer = labels.get(tjmp.n()) - 1;
     }
 
     private void execPrint(Print print) {

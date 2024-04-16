@@ -1,3 +1,10 @@
-int x;
-read x;
-write x;
+write 1+2;
+write 1+2.2;
+write 1 + 2*3.3;
+write (1+2)*3.3;
+
+if (true) {
+    write true;
+} else {
+    write false;
+}

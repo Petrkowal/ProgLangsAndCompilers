@@ -120,16 +120,16 @@ public class CompileVisitor extends ProjectGrammarBaseVisitor<List<Instruction>>
 
         switch (ctx.op.getText()) {
             case "+":
-                result.add(new Add());
+                result.add(new Add(types.get(ctx)));
                 break;
             case "-":
-                result.add(new Sub());
+                result.add(new Sub(types.get(ctx)));
                 break;
             case "*":
-                result.add(new Mul());
+                result.add(new Mul(types.get(ctx)));
                 break;
             case "/":
-                result.add(new Div());
+                result.add(new Div(types.get(ctx)));
                 break;
             case "%":
                 result.add(new Mod());
@@ -298,20 +298,42 @@ public class CompileVisitor extends ProjectGrammarBaseVisitor<List<Instruction>>
         ArrayList<Instruction> result = new ArrayList<>(condition);
 
 
-        if (ctx.statement().size() > 1) { // Else
+//        if (ctx.statement().size() > 1) { // Else
+//            int elseLabel = labelCounter++;
+//            int endLabel = labelCounter++;
+//            result.add(new Fjmp(elseLabel));
+//            result.addAll(visit(ctx.statement(0)));
+//            result.add(new Jmp(endLabel));
+//            result.add(new Label(elseLabel));
+//            result.addAll(visit(ctx.statement(1)));
+//            result.add(new Label(endLabel));
+//        }
+//        else {
+//            int endLabel = labelCounter++;
+//            result.add(new Fjmp(endLabel));
+//            result.addAll(visit(ctx.statement(0)));
+//            result.add(new Label(endLabel));
+//        }
+
+        if (ctx.statement().size() == 1) {
+            int thenLabel = labelCounter++;
+            int endLabel = labelCounter++;
+            result.add(new Tjmp(thenLabel));
+            result.add(new Jmp(endLabel));
+            result.add(new Label(thenLabel));
+            result.addAll(visit(ctx.statement(0)));
+            result.add(new Label(endLabel));
+        } else {
+            int thenLabel = labelCounter++;
             int elseLabel = labelCounter++;
             int endLabel = labelCounter++;
-            result.add(new Fjmp(elseLabel));
+            result.add(new Tjmp(thenLabel));
+            result.add(new Jmp(elseLabel));
+            result.add(new Label(thenLabel));
             result.addAll(visit(ctx.statement(0)));
             result.add(new Jmp(endLabel));
             result.add(new Label(elseLabel));
             result.addAll(visit(ctx.statement(1)));
-            result.add(new Label(endLabel));
-        }
-        else {
-            int endLabel = labelCounter++;
-            result.add(new Fjmp(endLabel));
-            result.addAll(visit(ctx.statement(0)));
             result.add(new Label(endLabel));
         }
 
@@ -322,16 +344,32 @@ public class CompileVisitor extends ProjectGrammarBaseVisitor<List<Instruction>>
 
     @Override
     public List<Instruction> visitWhileStatement(ProjectGrammarParser.WhileStatementContext ctx) {
+//        int startLabel = labelCounter++;
+//        int endLabel = labelCounter++;
+//        ArrayList<Instruction> result = new ArrayList<>();
+//        result.add(new Label(startLabel));
+//        result.addAll(visit(ctx.expr()));
+//        result.add(new Fjmp(endLabel));
+//        result.addAll(visit(ctx.statement()));
+//        result.add(new Jmp(startLabel));
+//        result.add(new Label(endLabel));
+//        return result;
+
+        // using true jump
         int startLabel = labelCounter++;
+        int thenLabel = labelCounter++;
         int endLabel = labelCounter++;
         ArrayList<Instruction> result = new ArrayList<>();
         result.add(new Label(startLabel));
         result.addAll(visit(ctx.expr()));
-        result.add(new Fjmp(endLabel));
+        result.add(new Tjmp(thenLabel));
+        result.add(new Jmp(endLabel));
+        result.add(new Label(thenLabel));
         result.addAll(visit(ctx.statement()));
         result.add(new Jmp(startLabel));
         result.add(new Label(endLabel));
         return result;
+
     }
 
     @Override
