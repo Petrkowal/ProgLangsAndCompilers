@@ -1,3 +1,3 @@
-float a, b, c;
-a = b = c = 1+1.0;
-write a,b,c;
+int x;
+read x;
+write x;

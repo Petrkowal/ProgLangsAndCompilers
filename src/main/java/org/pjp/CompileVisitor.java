@@ -296,18 +296,27 @@ public class CompileVisitor extends ProjectGrammarBaseVisitor<List<Instruction>>
     public List<Instruction> visitIfStatement(ProjectGrammarParser.IfStatementContext ctx) {
         List<Instruction> condition = visit(ctx.expr());
         ArrayList<Instruction> result = new ArrayList<>(condition);
-        int elseLabel = labelCounter++;
-        int endLabel = labelCounter++;
-        result.add(new Fjmp(elseLabel));
-        List<Instruction> then = visit(ctx.statement(0));
-        result.addAll(then);
-        result.add(new Jmp(endLabel));
-        result.add(new Label(elseLabel));
-        if (ctx.statement().size() > 1) {
-            List<Instruction> elseCode = visit(ctx.statement(1));
-            result.addAll(elseCode);
+
+
+        if (ctx.statement().size() > 1) { // Else
+            int elseLabel = labelCounter++;
+            int endLabel = labelCounter++;
+            result.add(new Fjmp(elseLabel));
+            result.addAll(visit(ctx.statement(0)));
+            result.add(new Jmp(endLabel));
+            result.add(new Label(elseLabel));
+            result.addAll(visit(ctx.statement(1)));
+            result.add(new Label(endLabel));
         }
-        result.add(new Label(endLabel));
+        else {
+            int endLabel = labelCounter++;
+            result.add(new Fjmp(endLabel));
+            result.addAll(visit(ctx.statement(0)));
+            result.add(new Label(endLabel));
+        }
+
+
+
         return result;
     }
 

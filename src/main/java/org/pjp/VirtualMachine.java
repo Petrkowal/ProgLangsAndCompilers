@@ -2,6 +2,7 @@ package org.pjp;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 import java.util.Stack;
 
 public class VirtualMachine {
@@ -273,12 +274,24 @@ public class VirtualMachine {
     }
 
     private void execRead(Read read) {
-        String input = System.console().readLine();
-        switch (read.type()) {
-            case INT -> stack.push(Integer.parseInt(input));
-            case FLOAT -> stack.push(Float.parseFloat(input));
-            case BOOL -> stack.push(Boolean.parseBoolean(input));
-            case STRING -> stack.push(input);
+        boolean ok = false;
+        while (!ok){
+            try{
+
+                System.out.print("Input: ");
+                Scanner scanner = new Scanner(System.in);
+                String input = scanner.nextLine();
+                switch (read.type()) {
+                    case INT -> stack.push(Integer.parseInt(input));
+                    case FLOAT -> stack.push(Float.parseFloat(input));
+                    case BOOL -> stack.push(Boolean.parseBoolean(input));
+                    case STRING -> stack.push(input);
+                }
+                ok = true;
+            }
+            catch (Exception e){
+                System.out.println("Invalid input. Try again.");
+            }
         }
     }
 
