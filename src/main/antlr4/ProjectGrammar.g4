@@ -4,15 +4,6 @@ grammar ProjectGrammar;
 prog: statement+ EOF;
 
 
-// A -> DO WHILE
-/*
-do statement while (condition);
-*/
-
-// B -> FOR
-/*
-for (expr ; contition ; expr) statement
-*/
 
 expr:
       op='-' expr                               # unaryMinus
